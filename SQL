@@ -1,0 +1,39 @@
+CREATE DATABASE overview;
+USE overview;
+
+CREATE TABLE products (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    product_name VARCHAR(250) NOT NULL UNIQUE,
+    brand VARCHAR(250) NOT NULL,
+    price FLOAT,
+    stars FLOAT,
+    num_reviews INT
+);
+
+CREATE TABLE reviews(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    stars INT NOT NULL,
+    content VARCHAR(1000) NOT NULL,
+    published DATE,
+    country VARCHAR(250),
+    product_id INT NOT NULL,
+    FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
+);
+
+CREATE TABLE labels(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    label VARCHAR(250) NOT NULL,
+    target INT NOT NULL,
+    UNIQUE(label, target)
+);
+
+CREATE TABLE reviews_labels(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    review_id INT NOT NULL,
+    label_id INT NOT NULL,
+    FOREIGN KEY (review_id) REFERENCES reviews(id) ON DELETE CASCADE,
+    FOREIGN KEY (label_id) REFERENCES labels(id) ON DELETE CASCADE
+);
+    
+    
+    
