@@ -28,6 +28,9 @@
 - Another major limitation is that this web page does not work with all Amazon products. It works fine with tangible things, like hardware, household items, etc., but it does not work with e-Books, movies, or similar. This is because Amazon does not structure all of their products the same, and it would require additional coding for these products
 - Deep learning is dominated by English, meaning that the DeBERTa-v3-base is primarily designed for the English language so I decided to accept products from the Amazon.com website only.
 
-# Conclusion and Future Development
+# Conclusion
+- This project was a great way for me to combine several technologies into a meaningful project. The most difficult challenge was scraping the information from the Amazon web page, due to the inconsistent code structure and scraping traps that are installed. In the end, it came down to a compromise between speed and reliability.
+- Also, digging deeper into the HTML structure of well-established companies provided a great inside into web coding practices. I have coded web apps before but since the classification task is all written in Python, I had to spend more time learning other backend technologies than just PHP. I feel much more comfortable using Python, so I will use Flask in future web projects (when appropriate).
+- I am a little disappointed that I was not able to fine-tune the model because I think using pre-trained model and then fine-tuning it to generalize it to the task at hand is a great way to construct sophisticated models, even with limited resources at hand. In the future, I will make use of cloud-hosted notebooks and pre-trained models to achieve competitive results on more advanced NLP tasks.
 
 
