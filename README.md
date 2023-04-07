@@ -12,4 +12,22 @@
  - For more information, check out the SQL.txt file in this repository to look at the SQL queueries.
  
  # Features
-- To get the features across of an interactive website is quite a challenge, so I decided to make a quick video. However, in a nutshell, the user enters a URL of an Amazon product into the text field, waits until the results have been loaded up and then provides a label to filter the displayed reviews. For a more detailed display of the wepage, check out this video:
+- To get the features across of an interactive website is quite a challenge, so I decided to make a quick video. However, in a nutshell, the user enters a URL of an Amazon product into the text field, waits until the results have been loaded up and then provides a label to filter the displayed reviews. For a more detailed display of the wepage, check out the features.mp4 file in this repository.
+
+# Technologies
+- I used several technologies building this application. First, I hosted a database using MariaDB that will store the information that resulted from crawling the Amazon webpages. Of course, I also used the most popular front-end technologies like HTML, CSS, and JavaScript. Most of the webpage is acutally dynamically generated, meaning that the actual content of the wep page is based on the queries made to the database.
+- When it comes to backend technology, I set up a Flask app to handle the connection made to the query and initiate the crawling process. Furthermore, the Flask app directs the texts from the reviews to the Transformer model.
+- As mentioned earlier, an important part of this application is classifying the reviews. Since no labels are available, a zero-shot classifier is used. Zero-shot classifiers are typically trained using a pre-trained language model, such as BERT or GPT. The model uses its pre-trained knowledge of language and concepts to make a prediction about the class of the input data by contrasting the input text and the label. The label, for example, might be a prompt like: "this text is about customer service".
+- Hugging Face is a useful platform that provides an enormous amount of different Transformer models. I decided to go with DeBERTa-v3-base (https://huggingface.co/sileod/deberta-v3-base-tasksource-nli) that was fine-tuned on 520 tasks, including a number of datasets that I deemed relevant for my purpose (e.g., https://huggingface.co/datasets/app_reviews and https://huggingface.co/datasets/amazon_polarity).
+- When it comes to scraping Amazon webpages, I used to essential technologies. First, I used Selenium's webdriver, an API that provides an interface for controlling the behaviour of web browsers. A headless webdriver provides the browser functionality without any visible UI. The advantage of such a web browser is that it executes JavaScript and stores cookies to appear more human like. This will prevent Amazon to prompt CAPTCHA challenges.
+- Using Selenium, I am able to obtain the HTML code of the Amazon webpage (it will take more time, however, than using the Requests library). I feel most comfortable using Beautiful Soup for parsing HTML documents, so I used this library to extract the information required.
+
+# Limitations
+- This web applications has several limitations. First, as shown in the demo video, it takes considerable time to crawl the information from the Amazon web page. Note that, for demonstration purposes, I only crawled the first 10 reviews from each star (i.e., 10 one-star reviews, 10 two-star reviews, etc.). In many cases, there are thousands of reviews that can be scraped, taking even more time to obtain.
+- Second, I tried but did not succeed in fine-tuning this model even further. This is because of the limited computation resources I have. In my case, I was constantly running out of CUDA memory, since the model has millions of parameters. I tried truncating the text input, using a batch size of 1 with gradient accumulation, etc., but nothing seemed to work. For this reason, the model might be inaccurate from time to time. This is especially true when the text has 30 characters or less.
+- Another major limitation is that this web page does not work with all Amazon products. It works fine with tangible things, like hardware, household items, etc., but it does not work with e-Books, movies, or similar. This is because Amazon does not structure all of their products the same, and it would require additional coding for these products
+- Deep learning is dominated by English, meaning that the DeBERTa-v3-base is primarily designed for the English language so I decided to accept products from the Amazon.com website only.
+
+# Conclusion and Future Development
+
+
