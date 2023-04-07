@@ -1,0 +1,56 @@
+@font-face { 
+    font-family: coolvetica; src: url('../Fonts/coolvetica.otf'); 
+}
+@media (max-width: 414px){
+    #logo{
+        width: 200px;
+    }
+    .search{
+        width: 200px;
+        height: 30px;
+    }
+}@media (min-width: 414px){
+    #logo{
+        width: 50%;
+    }
+    .search{
+        width: 40%;
+        height: 5%;
+    }
+}@media (min-width: 1200px){
+    #logo{
+        width: 30%;
+    }
+    .search{
+        width: 20%;
+        height: 5%;
+    }
+}
+
+html {
+    background-color: #2E3033;
+    color: white;
+    height: 100%;
+    font-family: coolvetica;
+}
+body {
+    height: 100%;
+}
+
+.wrapper {
+    position: relative;
+    top: -4vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#logo {
+    left: -10px;
+    position: relative;
+}
+#input-field-index{
+    height: 100%;
+}
