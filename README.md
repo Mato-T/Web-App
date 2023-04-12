@@ -3,7 +3,7 @@
 - The most important part of this application is retrieving the reviews of such products and offering certain filtering options. The user can filter by specific star ratings and even specify a keyword to be matched with the reviews.
 - The target audience for this web app is the regular consumer who wants to make an informed buying decision. If durability of an iPhone case, for example, is an important factor in the purchase decision, the user can filter for reviews that mention durability in their rating. This website provides a much more convenient interface for "reviewing reviews" compared to the Amazon website.
 
-# Data Request
+# Data Requirements
 - The main purpose of this application is to display reviews in an orderly fashion, meaning not much information is needed, either about the product or the reviews. For the product, I decided to include very basic information like the brand, the product name and the price.
 - The most important information is the text of each review, as it contains all the information about the positive and negative aspects of the product. It also allows you to classify the review based on the label provided. I also included the number of stars the review has, as it gives a basic sense of the sentiment of that review.
 - All this information is stored in a database. The reason for this is that scraping web pages takes a certain amount of time, which the user may not want to wait. Storing the results of the scraping in a database makes the next request for that product a simple database query. The simple database structure can be represented as follows:
